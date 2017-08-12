@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     Integer continueNow =0;
     String pss="";
     String usr="";
+    String suc_id;
     Button button;
     TextView textView2;
     EditText editText2, editText;
@@ -41,8 +42,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String MyPREFERENCES= "myPreferenced";
     public static final String User = "user";
     public static final String Password = "password";
+    public static final String SUC_ID  = "sucId";
     public static final String Status = "status";
-    public static final String SUC_ID  = "0";
+
     SharedPreferences sharedpreferences;
 
     @Override
@@ -57,21 +59,22 @@ public class MainActivity extends AppCompatActivity {
         editText.setTypeface(settings.fonts.typefaceR(this));
         editText2 = (EditText) findViewById(R.id.editText2);
         editText2.setTypeface(settings.fonts.typefaceR(this));
+        settings.stablishment.isOnline(this);
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
-        /*if (sharedpreferences.getAll().size()>0 ){
+        if (sharedpreferences.getAll().size()>0 ){
 
             settings.stablishment.setStatus( sharedpreferences.getString(Status, ""));
             settings.stablishment.setUser(sharedpreferences.getString(User, ""));
             settings.stablishment.setPss(sharedpreferences.getString(Password, ""));
-            settings.stablishment.setId(Integer.parseInt(sharedpreferences.getString(SUC_ID, "")));
+            settings.stablishment.setIdSuc(sharedpreferences.getString(SUC_ID, ""));
 
-            if(settings.stablishment.getStatus().equals("a")&&settings.stablishment.getIdSuc()!=0){
+            if(settings.stablishment.getStatus().equals("a")&&Integer.parseInt(settings.stablishment.getIdSuc())!=0){
                 Intent go = new Intent(MainActivity.this, head.class);
                 startActivity(go);
             }
-        }*/
+        }
 
         /*Intent go = new Intent (MainActivity.this, head.class);
         startActivity(go);*/
@@ -131,19 +134,21 @@ public class MainActivity extends AppCompatActivity {
                                     final JSONObject sta = (JSONObject) jsonArray.getJSONObject(i);
                                     settings.stablishment.setId( sta.getInt("id_admin"));
                                     settings.stablishment.setName(sta.getString("nombres"));
-                                    settings.stablishment.setIdSuc(sta.getInt("sucursal_id"));
+                                    settings.stablishment.setIdSuc(sta.getString("sucursal_id"));
                                 }
                                 dialog.dismiss();
-                                if(sharedpreferences.getAll().size()<1){
+
+                                suc_id = settings.stablishment.getIdSuc().toString();
                                     String n  = usr;
                                     String ph  = pss;
+                                    String si = suc_id;
                                     SharedPreferences.Editor editor = sharedpreferences.edit();
                                     editor.putString(User, n);
                                     editor.putString(Password, ph);
                                     editor.putString(Status,"a");
-                                    editor.putString(SUC_ID, settings.stablishment.getIdSuc().toString());
+                                    editor.putString(SUC_ID, suc_id);
                                     editor.commit();
-                                }
+
                                 if(continueNow ==0){
                                     Intent go = new Intent (MainActivity.this, head.class);
                                     startActivity(go);
