@@ -131,14 +131,14 @@ public class MainActivity extends AppCompatActivity {
                             if (response.length()>1){
                                 JSONArray jsonArray= response.getJSONArray("row");
                                 for(int i = 0;i<jsonArray.length();i++){
-                                    final JSONObject sta = (JSONObject) jsonArray.getJSONObject(i);
+                                    final JSONObject sta = jsonArray.getJSONObject(i);
                                     settings.stablishment.setId( sta.getInt("id_admin"));
                                     settings.stablishment.setName(sta.getString("nombres"));
                                     settings.stablishment.setIdSuc(sta.getString("sucursal_id"));
                                 }
                                 dialog.dismiss();
 
-                                suc_id = settings.stablishment.getIdSuc().toString();
+                                suc_id = settings.stablishment.getIdSuc();
                                     String n  = usr;
                                     String ph  = pss;
                                     String si = suc_id;
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                                     editor.putString(Password, ph);
                                     editor.putString(Status,"a");
                                     editor.putString(SUC_ID, suc_id);
-                                    editor.commit();
+                                    editor.apply();
 
                                 if(continueNow ==0){
                                     Intent go = new Intent (MainActivity.this, head.class);
@@ -163,8 +163,8 @@ public class MainActivity extends AppCompatActivity {
                                 toast.show();
                                 InputMethodManager inputMethodManager =  (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
-                                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                                editText.setText("");
+                                /*inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                                editText.setText("");*/
                             }
 
 
