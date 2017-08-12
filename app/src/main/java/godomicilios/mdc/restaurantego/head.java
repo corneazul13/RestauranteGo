@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
@@ -156,21 +157,26 @@ public class head extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id){
-            case  R.id.history:
-                settings.stablishment.setSelection(1);
-                finish();
-                startActivity(getIntent());
-                break;
-            case R.id.now:
-                if(settings.stablishment.getSelection()==1){
+            case R.id.action_now:
+                if(settings.stablishment.getSelection() == 1) {
                     settings.stablishment.setSelection(0);
+                    startActivity(getIntent());
                     finish();
-                    startActivity(getIntent());}
-                    break;
+                }
+                break;
+            case R.id.action_history:
+                settings.stablishment.setSelection(1);
+                startActivity(getIntent());
+                finish();
+                break;
+            case R.id.action_chat:
+                break;
+            case R.id.action_logout:
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -468,7 +474,8 @@ public class head extends AppCompatActivity
         manager.notify(0, builder.build());
 
     }
-    public void httpFirst (final String url) throws Exception{
+
+    /*public void httpFirst (final String url) throws Exception{
 
         final RequestQueue queue = Volley.newRequestQueue(this,new HurlStack(
                 null, CustomSSLSocketFactory.getSSLSocketFactory(head.this)));
@@ -525,6 +532,6 @@ public class head extends AppCompatActivity
         }
         );
         queue.add(jsonObjectRequest);
-    }
+    }*/
 
 }

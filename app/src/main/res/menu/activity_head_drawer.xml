@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <group
         android:id="@+id/menu_top"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/now"
-            android:title="PEDIDOS ACTIVOS"/>
+            android:id="@+id/action_now"
+            android:icon="@drawable/ic_action_now"
+            android:title="@string/llb_menu_now"/>
+        <item
+            android:id="@+id/action_history"
+            android:icon="@drawable/ic_action_history"
+            android:title="@string/llb_menu_history"/>
+        <item
+            android:id="@+id/action_chat"
+            android:icon="@drawable/ic_action_chat"
+            android:title="@string/llb_menu_chat"/>
     </group>
-
     <group
         android:id="@+id/menu_bottom"
-        android:checkableBehavior="none">
-
-        <item
-            android:id="@+id/history"
-            android:title="HISTORIAL PEDIDOS" >
-        </item>
-    </group>
-    <group
-        android:id="@+id/menu_topb"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/logout"
-            android:title="CERRAR SESIÓN"/>
+            android:id="@+id/action_logout"
+            android:icon="@drawable/ic_action_logout"
+            android:title="@string/llb_menu_logout"/>
     </group>
-    <group
-        android:id="@+id/menu_topbs"
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/drawer_item_reportsbs"
-            android:title=""/>
-    </group>
-
-
 </menu>

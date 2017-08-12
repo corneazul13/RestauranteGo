@@ -8,4 +8,11 @@
     <string name="title_activity_detail">detail</string>
     <string name="title_activity_history">history</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- Opciones del menu lateral -->
+    <string name="llb_menu_now">PEDIDOS ACTIVOS</string>
+    <string name="llb_menu_history">HISTORIAL PEDIDOS</string>
+    <string name="llb_menu_chat">CHAT</string>
+    <string name="llb_menu_logout">CERRAR SESIÓN</string>
+
 </resources>
