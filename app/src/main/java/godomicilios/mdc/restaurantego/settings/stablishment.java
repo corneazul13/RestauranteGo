@@ -1,12 +1,17 @@
 package godomicilios.mdc.restaurantego.settings;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.util.Log;
+
 /**
  * Created by PROGRAMACION5 on 07/07/2017.
  */
 public class stablishment {
     private Integer id;
     private String name;
-    private Integer idSuc;
+    private String idSuc;
     private Integer selection=0;
     private String status;
     private String user;
@@ -29,11 +34,11 @@ public class stablishment {
         this.name = name;
     }
 
-    public Integer getIdSuc() {
+    public String getIdSuc() {
         return idSuc;
     }
 
-    public void setIdSuc(Integer idSuc) {
+    public void setIdSuc(String idSuc) {
         this.idSuc = idSuc;
     }
 
@@ -67,5 +72,27 @@ public class stablishment {
 
     public void setPss(String pss) {
         this.pss = pss;
+    }
+
+    public boolean isOnline(Context contexto){
+        boolean online = false;
+        ConnectivityManager cm = (ConnectivityManager) contexto.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                if(activeNetwork.isConnectedOrConnecting()) {
+                    Log.i("Utils()isOnline", "Connected to wifi.");
+                    online = true;
+                }
+            } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                if(activeNetwork.isConnectedOrConnecting()) {
+                    Log.i("Utils()isOnline", "Connected to the mobile provider's data plan.");
+                    online = true;
+                }
+            }
+        } else {
+            online = false;
+        }
+        return online;
     }
 }
