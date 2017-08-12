@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e43212</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="redG">#e43212</color>
+    <color name="grayB">#cccccc</color>
+    <color name="textBox">#c1c2c7</color>
+    <color name = "redGoSelect">#b3270e</color>
+    <color name="confirm">#5db85d</color>
+    <color name="cancel">#e43414</color>
+</resources>

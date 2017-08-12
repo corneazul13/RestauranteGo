@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/now"
+            android:title="PEDIDOS ACTIVOS"/>
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/history"
+            android:title="HISTORIAL PEDIDOS" >
+        </item>
+    </group>
+    <group
+        android:id="@+id/menu_topb"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/logout"
+            android:title="CERRAR SESIÓN"/>
+    </group>
+    <group
+        android:id="@+id/menu_topbs"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_item_reportsbs"
+            android:title=""/>
+    </group>
+
+
+</menu>

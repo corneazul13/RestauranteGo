@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RestauranteGo</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_head">head</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_detail">detail</string>
+    <string name="title_activity_history">history</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
