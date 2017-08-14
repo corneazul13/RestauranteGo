@@ -15,4 +15,10 @@
     <string name="llb_menu_chat">CHAT</string>
     <string name="llb_menu_logout">CERRAR SESIÓN</string>
 
+    <!-- Vista login -->
+    <string name="lbl_login">INICIAR SESIÓN</string>
+    <string name="lbl_username">USUARIO</string>
+    <string name="lbl_password">CONTRASEÑA</string>
+    <string name="lbl_validate">INGRESAR</string>
+
 </resources>
