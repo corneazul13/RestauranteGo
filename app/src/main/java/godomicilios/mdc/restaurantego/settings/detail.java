@@ -13,24 +13,29 @@ public class detail {
     private Integer num;
     private String picture;
     private Integer subtotalProduct;
-    private String drink = "";
-    private String observation = "";
+    private String drink;
+    private String observation;
     private ArrayList<ingredient> ingredients;
     private ArrayList<addition> additions;
     public ArrayList<detail> details;
 
     public detail(String name,Integer cant,String picture,Integer subtotalProduct,
                   String drink,String observation,ArrayList<ingredient> ingredients,ArrayList<addition> additions){
-        this.name = name;
-        this.cant = cant;
-        this.picture = picture;
-        this.subtotalProduct = subtotalProduct;
-        this.drink = drink;
-        this.observation = observation;
-        this.ingredients = ingredients;
-        this.additions = additions;
+        this.setName(name);
+        this.setCant(cant);
+        this.setPicture(picture);
+        this.setSubtotalProduct(subtotalProduct);
+        this.setDrink(drink);
+        this.setObservation(observation);
+        this.setIngredients(ingredients);
+        this.setAdditions(additions);
     }
     public detail (){}
+
+
+    public void setSubtotalProduct(Integer subtotalProduct) {
+        this.subtotalProduct = subtotalProduct;
+    }
 
     public String getName() {
         return name;
@@ -46,6 +51,26 @@ public class detail {
 
     public void setCant(Integer cant) {
         this.cant = cant;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public Integer getSubtotalProduct() {
+        return subtotalProduct;
     }
 
     public String getDrink() {
@@ -78,29 +103,5 @@ public class detail {
 
     public void setAdditions(ArrayList<addition> additions) {
         this.additions = additions;
-    }
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    public Integer getSubtotalProduct() {
-        return subtotalProduct;
-    }
-
-    public void setSubtotalProduct(Integer subtotalProduct) {
-        this.subtotalProduct = subtotalProduct;
     }
 }

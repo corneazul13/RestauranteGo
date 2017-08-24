@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="godomicilios.mdc.restaurantego">
 
+    <!-- Permisos para acceso a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".head"
+            android:name=".Principal"
             android:label="@string/title_activity_head"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -29,13 +33,21 @@
             android:label="@string/title_activity_history"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".detailC"
+            android:name=".Details"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <!-- Servicio de notificaciones -->
+        <service
+            android:name=".Service.FirebaseService"
+            android:permission="android.permission.INTERNET">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

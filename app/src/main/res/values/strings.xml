@@ -1,4 +1,8 @@
 <resources>
+
+    <!-- Url api -->
+    <string name="url_api">https://godomicilios.co/webService/servicios_restaurante.php</string>
+
     <string name="app_name">RestauranteGo</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_head">head</string>
@@ -20,5 +24,35 @@
     <string name="lbl_username">USUARIO</string>
     <string name="lbl_password">CONTRASEÑA</string>
     <string name="lbl_validate">INGRESAR</string>
+
+    <string name="lbl_title_view">HISTORIAL DE PEDIDO</string>
+    <string name="lbl_title_view_orders">PEDIDOS ACTIVOS</string>
+
+    <string name="lbl_title_order">PEDIDOS ACTIVOS</string>
+
+    <string name="lbl_order">PEDIDO</string>
+    <string name="lbl_numer">No.</string>
+    <string name="lbl_state_sale">ESTADO DE VENTA</string>
+    <string name="lbl_method">MÉTODO DE PAGO</string>
+    <string name="lbl_detail">DETALLE DEL PEDIDO</string>
+    <string name="lbl_sale_order">VENTA DEL PEDIDO</string>
+    <string name="lbl_price_living">COSTO DOMICILIO</string>
+    <string name="lbl_total_price">COSTO TOTAL</string>
+    <string name="lbl_username_order">USUARIO</string>
+    <string name="lbl_date_order">FECHA PEDIDO</string>
+    <string name="lbl_address">DIRECCIÓN</string>
+
+    <!-- Vista de la carga de pedidos -->
+    <string name="lbl_data_not_found">No hay pedidos en el momento</string>
+    <string name="lbl_order_detail">Detalles Del Pedido</string>
+    <string name="lbl_subtotal">Subtotal:</string>
+    <string name="lbl_cost_living">Costo Domicilio:</string>
+    <string name="lbl_total">Total:</string>
+    <string name="lbl_item_value">$0</string>
+    <string name="lbl_order_observation">Observaciones del pedido</string>
+    <string name="lbl_observations">Escribe tu mensaje</string>
+    <string name="lbl_confirm_order">Aceptar Pedido</string>
+    <string name="lbl_cancel_order">Cancelar Pedido</string>
+    <string name="lbl_detail_order">Detalle pedido:</string>
 
 </resources>

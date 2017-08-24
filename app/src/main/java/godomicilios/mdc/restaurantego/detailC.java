@@ -47,36 +47,35 @@ public class detailC extends AppCompatActivity {
     String url = settings.url.url+ "RESPUESTA_PEDIDO&metodo=json&pedido_id=";
     DecimalFormat formatea = new DecimalFormat("###,###.##");
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        textView = (TextView) findViewById(R.id.textView);
-        comentary = (EditText) findViewById(R.id.comentary);
-        textView.setTypeface(settings.fonts.typefaceR(this));
-        confirm = (Button) findViewById(R.id.confirm);
-        a = (TextView) findViewById(R.id.a);
-        a.setTypeface(settings.fonts.typefaceR(this));
-        b = (TextView) findViewById(R.id.b);
-        b.setTypeface(settings.fonts.typefaceR(this));
-        c = (TextView) findViewById(R.id.c);
-        c.setTypeface(settings.fonts.typefaceR(this));
-        d = (TextView) findViewById(R.id.d);
-        cancel = (Button) findViewById(R.id.cancel);
-        content = (LinearLayout) findViewById(R.id.content);
-        d.setTypeface(settings.fonts.typefaceR(this));
-        observ = (LinearLayout) findViewById(R.id.observ);
-        subtotal = (TextView) findViewById(R.id.subtotal);
-        subtotal.setTypeface(settings.fonts.typefaceR(this));
-        price = (TextView) findViewById(R.id.price);
-        price.setTypeface(settings.fonts.typefaceR(this));
-        total = (TextView) findViewById(R.id.total);
-        total.setTypeface(settings.fonts.typefaceR(this));
-        show  = (LinearLayout) findViewById(R.id.show);
-        textView3 = (TextView) findViewById(R.id.textView3);
+        //textView = (TextView) findViewById(R.id.textView);
+        //comentary = (EditText) findViewById(R.id.comentary);
+        //textView.setTypeface(settings.fonts.typefaceR(this));
+        //confirm = (Button) findViewById(R.id.confirm);
+        //a = (TextView) findViewById(R.id.a);
+        //a.setTypeface(settings.fonts.typefaceR(this));
+        //b = (TextView) findViewById(R.id.b);
+        //b.setTypeface(settings.fonts.typefaceR(this));
+        //c = (TextView) findViewById(R.id.c);
+        //c.setTypeface(settings.fonts.typefaceR(this));
+        //d = (TextView) findViewById(R.id.d);
+        //cancel = (Button) findViewById(R.id.cancel);
+        //content = (LinearLayout) findViewById(R.id.content);
+        //d.setTypeface(settings.fonts.typefaceR(this));
+        //observ = (LinearLayout) findViewById(R.id.observ);
+        //subtotal = (TextView) findViewById(R.id.subtotal);
+        //subtotal.setTypeface(settings.fonts.typefaceR(this));
+        //price = (TextView) findViewById(R.id.price);
+        //price.setTypeface(settings.fonts.typefaceR(this));
+        //total = (TextView) findViewById(R.id.total);
+        //total.setTypeface(settings.fonts.typefaceR(this));
+        //show  = (LinearLayout) findViewById(R.id.show);
+        //textView3 = (TextView) findViewById(R.id.textView3);
         textView3.setTypeface(settings.fonts.typefaceR(this));
         comentary.setTypeface(settings.fonts.typefaceR(this));
         Integer numTotal = settings.order.orders.get(settings.detail.getNum()).getSale()+settings.order.orders.get(settings.detail.getNum()).getPrice();
@@ -101,7 +100,7 @@ public class detailC extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    answer(url+settings.order.orders.get(settings.detail.getNum()).getIdOrder() +"&estado=2"+"&comentario="+comentary.getText().toString());
+                    answer(url+settings.order.orders.get(settings.detail.getNum()).getId() +"&estado=2"+"&comentario="+comentary.getText().toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -118,7 +117,7 @@ public class detailC extends AppCompatActivity {
                     comentary.setHint("Agregar comentario!");
                 }else{
                     try {
-                        answer(url+settings.order.orders.get(settings.detail.getNum()).getIdOrder()+"&estado=3"+"&comentario="+comentary.getText().toString());
+                        answer(url+settings.order.orders.get(settings.detail.getNum()).getId()+"&estado=3"+"&comentario="+comentary.getText().toString());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

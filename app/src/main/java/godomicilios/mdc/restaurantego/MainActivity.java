@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
             settings.stablishment.setIdSuc(sharedpreferences.getString(SUC_ID, ""));
 
             if(settings.stablishment.getStatus().equals("a")&&Integer.parseInt(settings.stablishment.getIdSuc())!=0){
-                Intent go = new Intent(MainActivity.this, head.class);
+                Intent go = new Intent(MainActivity.this, Principal.class);
                 startActivity(go);
             }
         }
 
-        /*Intent go = new Intent (MainActivity.this, head.class);
+        /*Intent go = new Intent (MainActivity.this, Principal.class);
         startActivity(go);*/
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                                     editor.apply();
 
                                 if(continueNow ==0){
-                                    Intent go = new Intent (MainActivity.this, head.class);
+                                    Intent go = new Intent (MainActivity.this, Principal.class);
                                     startActivity(go);
                                 }
 

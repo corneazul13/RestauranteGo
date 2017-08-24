@@ -1,199 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="godomicilios.mdc.restaurantego.detailC"
+    tools:context="godomicilios.mdc.restaurantego.Details"
     tools:showIn="@layout/activity_detail">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.9"
+    <TextView
+        android:id="@+id/lbl_title_page"
         android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/redG"
-            android:text="DETALLE PEDIDO" />
-    </LinearLayout>
-
-    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:layout_weight="0.1">
-
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/redG"
+        android:text="@string/lbl_order_detail"
+        android:textAllCaps="true"/>
+    <ScrollView
+        android:id="@+id/scroll_details"
+        android:visibility="gone"
+        android:layout_below="@+id/lbl_title_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_weight="0.6"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:baselineAligned="false">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:orientation="vertical">
-
                     <TextView
-                        android:id="@+id/a"
+                        android:id="@+id/lbl_subtotal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="Subtotal:"
+                        android:text="@string/lbl_subtotal"
                         android:textColor="@android:color/black" />
-
                     <TextView
-                        android:id="@+id/b"
+                        android:id="@+id/lbl_cost_living"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="Costo Domicilio:"
+                        android:text="@string/lbl_cost_living"
                         android:textColor="@android:color/black" />
-
                     <TextView
-                        android:id="@+id/c"
+                        android:id="@+id/lbl_total"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="Total:"
+                        android:text="@string/lbl_total"
                         android:textColor="@android:color/black" />
-
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_weight="0.5"
                     android:orientation="vertical">
-
                     <TextView
-                        android:id="@+id/subtotal"
+                        android:id="@+id/txt_subtotal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
                         android:gravity="right"
-                        android:text="$"
+                        android:text="@string/lbl_item_value"
                         android:textColor="@android:color/black" />
-
                     <TextView
-                        android:id="@+id/price"
+                        android:id="@+id/txt_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
                         android:gravity="right"
-                        android:text="$"
+                        android:text="@string/lbl_item_value"
                         android:textColor="@android:color/black" />
-
                     <TextView
-                        android:id="@+id/total"
+                        android:id="@+id/txt_total"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
                         android:gravity="right"
-                        android:text="$"
+                        android:text="@string/lbl_item_value"
                         android:textColor="@android:color/black" />
                 </LinearLayout>
             </LinearLayout>
-
+            <View
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/grayB"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
             <LinearLayout
-                android:id="@+id/observ"
+                android:id="@+id/layout_observations"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_weight="0.6"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/lbl_observations"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Observacion del pedido"
+                    android:text="@string/lbl_order_observation"
                     android:textColor="@android:color/black" />
-
                 <LinearLayout
-                    android:id="@+id/content"
+                    android:id="@+id/layout_content"
+                    android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
                     <EditText
-                        android:id="@+id/comentary"
+                        android:id="@+id/txt_observations"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        android:background="@android:color/white"
-                        android:hint="Escribe tu mensaje"
+                        android:padding="8dp"
+                        android:background="@drawable/background_textarea"
+                        android:hint="@string/lbl_observations"
                         android:inputType="textCapSentences|textMultiLine"
+                        android:lines="12"
                         android:maxLength="100"
-                        android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="12sp" />
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/confirm"
+                <LinearLayout
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@color/confirm"
-                    android:text="Aceptar Pedido"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-                <Button
-                    android:id="@+id/cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/cancel"
-                    android:text="Cancelar Pedido"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
+                    android:layout_height="65dp">
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_cancel"
+                        android:src="@drawable/ic_cancel"
+                        app:fabSize="normal"
+                        app:backgroundTint="@color/cancel"
+                        app:elevation="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <android.support.v4.widget.Space
+                        android:layout_width="75dp"
+                        android:layout_height="12dp" />
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_confirm"
+                        android:src="@drawable/ic_check"
+                        app:backgroundTint="@color/confirm"
+                        app:fabSize="normal"
+                        app:elevation="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
             </LinearLayout>
-
+            <View
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:background="@color/grayB"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
             <TextView
-                android:id="@+id/d"
+                android:id="@+id/lbl_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_weight="0.6"
-                android:text="Detalle pedido:"
+                android:text="@string/lbl_detail_order"
                 android:textColor="@android:color/black" />
-
             <LinearLayout
-                android:id="@+id/show"
+                android:id="@+id/layout_details"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
                 android:background="@color/grayB"
                 android:orientation="vertical">
-
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+</RelativeLayout>

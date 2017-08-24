@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "125494857517",
+    "firebase_url": "https://fir-go-domicilios.firebaseio.com",
+    "project_id": "firebase-go-domicilios",
+    "storage_bucket": "firebase-go-domicilios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125494857517:android:3b9cac94ee26201d",
+        "android_client_info": {
+          "package_name": "godomicilios.mdc.restaurantego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125494857517-9fm37e93f0tl9rv8n35vet0fea1ngsof.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "godomicilios.mdc.restaurantego",
+            "certificate_hash": "0602c234f14e0eddcb4a9768a636ab33b2d085d6"
+          }
+        },
+        {
+          "client_id": "125494857517-kuuh19vtjal9rcp1smfgglve6k2e81jt.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "125494857517-l5lugao570ntqtseg182n8h8n3uju223.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCywp46juE0c_v2d3wmzw5W0lNfKt-qywE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125494857517-152immrijo9a228kegst5bvk49obes1t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mdccolombia.go-domicilios-sucursal"
+              }
+            },
+            {
+              "client_id": "125494857517-kuuh19vtjal9rcp1smfgglve6k2e81jt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
