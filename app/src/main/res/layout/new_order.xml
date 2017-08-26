@@ -47,8 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_address"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_address" />
             <TextView
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
@@ -57,14 +56,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_method"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_method"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_method" />
             <TextView
                 android:id="@+id/metho"
                 android:layout_width="wrap_content"
@@ -73,14 +72,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_sale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_sale_order"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_sale_order" />
             <TextView
                 android:id="@+id/sale"
                 android:layout_width="wrap_content"
@@ -89,14 +88,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_price_living"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_price_living"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_price_living"/>
             <TextView
                 android:id="@+id/price_living"
                 android:layout_width="wrap_content"
@@ -105,14 +104,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_total_price"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_total_price"/>
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
@@ -121,14 +120,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_username_order"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_username_order"/>
             <TextView
                 android:id="@+id/user"
                 android:layout_width="wrap_content"
@@ -137,14 +136,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_date_order"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_date_order"/>
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
@@ -153,14 +152,14 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
-                android:text="" />
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
             <TextView
                 android:id="@+id/lbl_title_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/lbl_state_sale"
-                android:textColor="@android:color/black" />
+                android:text="@string/lbl_state_sale"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_marginLeft="4dp"
@@ -189,11 +188,12 @@
                     android:orientation="vertical">
                     <TextView
                         android:id="@+id/lbl_status"
+                        android:textSize="18sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="" />
+                        android:textColor="@android:color/black"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

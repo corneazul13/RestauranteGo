@@ -132,8 +132,8 @@ public class AdapterRecyclerOrders extends RecyclerView.Adapter<AdapterRecyclerO
             @Override
             public void onClick(View view) {
                 if(connection.isOnline()) {
-                    //openDetails(order_id, position);
-                    dialog.toastInfo("Opción deshabilitada temporalmente!");
+                    openDetails(order_id, position);
+                    //dialog.toastInfo("Opción deshabilitada temporalmente!");
                 } else {
                     dialog.toastWarning("Conexión de red inestable");
                 }

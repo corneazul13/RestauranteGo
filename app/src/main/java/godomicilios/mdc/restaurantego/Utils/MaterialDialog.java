@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.Toast;
 
+import cn.refactor.lib.colordialog.PromptDialog;
 import dmax.dialog.SpotsDialog;
 import es.dmoral.toasty.Toasty;
 import godomicilios.mdc.restaurantego.R;
@@ -39,6 +40,19 @@ public class MaterialDialog {
     //Funcion que permite cancelar una alerta asincronica
     public void cancelProgress(){
         progressDialog.cancel();
+    }
+
+    public void dialogWarnings(String title, String message){
+        new PromptDialog(context).setDialogType(PromptDialog.DIALOG_TYPE_WARNING)
+                .setTitleText(title)
+                .setContentText(message)
+                .setAnimationEnable(true)
+                .setPositiveListener("Ok", new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
     public void toastInfo(String message){

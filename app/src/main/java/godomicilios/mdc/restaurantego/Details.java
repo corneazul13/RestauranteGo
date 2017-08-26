@@ -158,7 +158,6 @@ public class Details extends AppCompatActivity {
 
     public void setupinfo(JsonArray array) {
         settings.detail.details = new ArrayList<>();
-
         for (int i = 0; i < array.size(); i++) {
             JsonObject data = array.get(i).getAsJsonObject();
             ArrayList<ingredient> ingredients = new ArrayList<>();
@@ -173,7 +172,6 @@ public class Details extends AppCompatActivity {
                     dri = name+" "+size;
                 }
             }
-
             JsonArray array_ingredients = data.getAsJsonArray("detalle_ingre");
             if(array_ingredients.size() > 0) {
                 for (int j = 0; j < array_ingredients.size(); j++) {
@@ -181,7 +179,6 @@ public class Details extends AppCompatActivity {
                     ingredients.add(new ingredient(nombre_ing));
                 }
             }
-
             JsonArray array_additions = data.getAsJsonArray("detalle_adi");
             if(array_additions.size() > 0) {
                 for (int j = 0; j < array_additions.size(); j++) {
@@ -193,7 +190,6 @@ public class Details extends AppCompatActivity {
                     additions.add(new addition(name, quantity, value, total));
                 }
             }
-
             settings.detail.details.add(new detail(
                     data.get("nombre_producto").getAsString(),
                     i,

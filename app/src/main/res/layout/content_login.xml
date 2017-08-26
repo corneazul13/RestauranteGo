@@ -6,40 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="godomicilios.mdc.restaurantego.MainActivity"
+    tools:context="godomicilios.mdc.restaurantego.Login"
     android:orientation="vertical"
-    android:background="@color/blueGo"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_login">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.3"
-        android:orientation="vertical">
-        <ImageView
-            android:src="@drawable/iniciox2"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
-            app:srcCompat="@drawable/logox3" />
-    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:background="@color/blueGo"
+        android:layout_height="0dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_weight="0.7"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/lbl_title_page"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -50,7 +30,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/txt_username"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:paddingLeft="10dp"
@@ -66,7 +46,7 @@
             android:textColorHint="@color/textBox"
             android:inputType="textPersonName" />
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/txt_password"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:paddingLeft="10dp"
@@ -81,7 +61,7 @@
             android:textColorHint="@color/textBox"
             android:textSize="14sp" />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/but_validate"
             android:layout_width="fill_parent"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
