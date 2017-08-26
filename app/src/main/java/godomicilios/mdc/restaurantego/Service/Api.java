@@ -38,6 +38,8 @@ public interface Api {
             @Query("metodo") String metodo,
             @Query("usr")String username,
             @Query("pwd")String password,
+            @Query("token")String token,
+            @Query("device")String device,
             Callback<JsonObject> cb
     );
 

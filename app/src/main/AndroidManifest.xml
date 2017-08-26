@@ -6,7 +6,7 @@
     <!-- Permisos para acceso a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -30,10 +30,12 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Principal"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_head"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".History"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_history"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -46,10 +48,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- Servicio de notificaciones -->
         <service
-            android:name=".Service.FirebaseService"
-            android:permission="android.permission.INTERNET">
+            android:name=".Service.Notifications">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
 

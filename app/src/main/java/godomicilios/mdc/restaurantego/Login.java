@@ -84,12 +84,13 @@ public class Login extends AppCompatActivity {
     public void login(String svice, String metodo, String username, String password) {
         dialog.dialogProgress("Iniciando Sesión...");
         final String url = getString(R.string.url_api);
+        String token = getToken();
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setEndpoint(url)
                 .build();
         Api api = restAdapter.create(Api.class);
-        api.login(svice, metodo, username, password, new Callback<JsonObject>() {
+        api.login(svice, metodo, username, password, token, "android", new Callback<JsonObject>() {
             @Override
             public void success(JsonObject jsonObject, retrofit.client.Response response) {
                 String error = jsonObject.get("error").getAsString();
@@ -132,12 +133,12 @@ public class Login extends AppCompatActivity {
         editor.putString("avatar", validateNull(json_user, "imagen"));
         editor.putInt("profile_id", json_user.get("perfil").getAsInt());
         editor.putString("created_at", validateNull(json_user, "fecha_registro"));
+        editor.putString("token_firebase", getToken());
         editor.putBoolean("session", true);
-        editor.putString("token_firebase", tokenFirebase());
         editor.apply();
     }
 
-    public String tokenFirebase() {
+    public String getToken() {
         String token_refresh = FirebaseInstanceId.getInstance().getToken();
         System.out.println("token: " + token_refresh);
         return token_refresh;

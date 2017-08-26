@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -64,11 +65,17 @@ public class Welcome extends AppCompatActivity {
             preferences.getString("avatar", "");
             preferences.getInt("profile_id", 0);
             preferences.getString("created_at", "");
-            preferences.getString("token_firebase", "");
+            preferences.getString("token_firebase", tokenFirebase());
             Intent login = new Intent (Welcome.this, Login.class);
             startActivity(login);
         }
         finish();
+    }
+
+    public String tokenFirebase() {
+        String token_refresh = FirebaseInstanceId.getInstance().getToken();
+        System.out.println("token: " + token_refresh);
+        return token_refresh;
     }
 
 }
