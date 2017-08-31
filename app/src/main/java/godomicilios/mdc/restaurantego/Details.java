@@ -8,13 +8,17 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import butterknife.Bind;
@@ -22,6 +26,7 @@ import butterknife.ButterKnife;
 import godomicilios.mdc.restaurantego.Service.Api;
 import godomicilios.mdc.restaurantego.Utils.Certificate;
 import godomicilios.mdc.restaurantego.Utils.MaterialDialog;
+import godomicilios.mdc.restaurantego.settings.Product;
 import godomicilios.mdc.restaurantego.settings.detail;
 import godomicilios.mdc.restaurantego.settings.ingredient;
 import godomicilios.mdc.restaurantego.settings.addition;
@@ -137,8 +142,10 @@ public class Details extends AppCompatActivity {
             @Override
             public void success(JsonArray array, retrofit.client.Response response) {
                 if(array.size() > 0) {
+                    System.out.println("array: " + array.toString());
                     setupinfo(array);
                     setInfo(position);
+                    setDetailsOrder(array);
                 } else {
                     dialog.toastWarning("No hay datos");
                 }
@@ -209,6 +216,34 @@ public class Details extends AppCompatActivity {
         txt_price.setText("$" + format.format(settings.order.orders.get(settings.detail.getNum()).getPrice()));
         Integer numTotal = settings.order.orders.get(settings.detail.getNum()).getSale()+settings.order.orders.get(settings.detail.getNum()).getPrice();
         txt_total.setText("$" + format.format(numTotal));
+    }
+
+    public void setDetailsOrder(JsonArray array) {
+        for (int i = 0; i < array.size(); i++) {
+            JsonObject json_product = array.get(i).getAsJsonObject();
+            Product product = new Gson().fromJson(json_product, Product.class);
+            setupLayoutDetail(product);
+        }
+    }
+
+    public void setupLayoutDetail(Product product) {
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.template_row_detail, null);
+        ImageView img_avatar = layout.findViewById(R.id.img_avatar_product);
+        TextView lbl_name_product = layout.findViewById(R.id.lbl_name_product);
+        TextView lbl_number = layout.findViewById(R.id.lbl_number);
+        TextView txt_drink_order = layout.findViewById(R.id.txt_drink_order);
+        TextView txt_observations = layout.findViewById(R.id.txt_observations);
+        TextView txt_subtotal = layout.findViewById(R.id.txt_subtotal);
+
+        Picasso.with(context).load(product.getAvatar()).placeholder(R.drawable.logo_blue).centerInside().fit().into(img_avatar);
+        lbl_name_product.setText(product.getName());
+        lbl_number.setText(String.valueOf(product.getId()));
+        txt_drink_order.setText(product.getName());
+        txt_observations.setText(product.getDescription());
+        txt_subtotal.setText("$" + String.valueOf(product.getValue()));
+
+        layout_details.addView(layout);
     }
 
 }

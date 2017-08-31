@@ -7,20 +7,20 @@ package godomicilios.mdc.restaurantego.Events;
 public class NotificationsBus {
 
     private boolean refresh;
-    private int type;
+    private int order_id;
     private int notification_id;
 
-    public NotificationsBus(boolean refresh, int type, int notification_id) {
+    public NotificationsBus(boolean refresh, int order_id, int notification_id) {
         this.refresh = refresh;
-        this.type = type;
+        this.order_id = order_id;
         this.notification_id = notification_id;
     }
 
     public boolean isRefresh() {
         return refresh;
     }
-    public int getType() {
-        return type;
+    public int getOrder_id() {
+        return order_id;
     }
     public int getNotification_id() {
         return notification_id;

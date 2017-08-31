@@ -12,4 +12,6 @@
 
     <color name="blueGo">#00CDBD</color>
     <color name="blueGoDark">#0E9BA1</color>
+    <color name="grayLight">#e4e3e3</color>
+    <color name="blueGoTransparent">#5200cdbd</color>
 </resources>

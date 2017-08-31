@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="godomicilios.mdc.restaurantego.ChatRoom"
+    tools:showIn="@layout/activity_chat_room">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/txt_message_send"
+            android:background="@drawable/background_text_chat"
+            android:hint="@string/lbl_message_chat"
+            android:textSize="21sp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="14dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:minLines="1"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"
+            android:maxLength="2000"
+            android:maxLines="5"
+            android:layout_weight=".65"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/fab_margin"
+            android:scaleType="center"
+            android:src="@drawable/ic_send" />
+    </LinearLayout>
+
+</RelativeLayout>

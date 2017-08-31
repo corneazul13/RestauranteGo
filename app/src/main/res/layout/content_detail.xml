@@ -22,11 +22,13 @@
         android:textAllCaps="true"/>
     <ScrollView
         android:id="@+id/scroll_details"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_below="@+id/lbl_title_page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

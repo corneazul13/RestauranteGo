@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.refactor.lib.colordialog.ColorDialog;
 import godomicilios.mdc.restaurantego.Adapters.AdapterRecyclerOrders;
 import godomicilios.mdc.restaurantego.Service.Api;
 import godomicilios.mdc.restaurantego.Utils.Certificate;
@@ -120,12 +121,13 @@ public class History extends AppCompatActivity
         int id = item.getItemId();
         switch (id){
             case R.id.action_now:
-                ordersNow();
+                actionNewOrders();
                 break;
             case R.id.action_chat:
+                actionChatRoom();
                 break;
             case R.id.action_logout:
-                logout();
+                dialogLogout();
                 break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -133,9 +135,30 @@ public class History extends AppCompatActivity
         return true;
     }
 
-    public void ordersNow() {
+    public void actionNewOrders() {
         startActivity(new Intent(History.this, Principal.class));
         finish();
+    }
+
+    public void actionChatRoom() {
+        startActivity(new Intent(History.this, ChatRoom.class));
+    }
+
+    public void dialogLogout() {
+        ColorDialog dialog = new ColorDialog(this);
+        dialog.setTitle("Cerrar Sesón");
+        dialog.setContentText("¿Deseas realmente cerrar la sesión?");
+        dialog.setPositiveListener("Si", new ColorDialog.OnPositiveListener() {
+            @Override
+            public void onClick(ColorDialog dialog) {
+                logout();
+            }
+        }).setNegativeListener("No", new ColorDialog.OnNegativeListener() {
+            @Override
+            public void onClick(ColorDialog dialog) {
+                dialog.dismiss();
+            }
+        }).show();
     }
 
     public void logout() {
@@ -159,8 +182,6 @@ public class History extends AppCompatActivity
             lbl_data_not_found.setText("Error de conexión");
         }
     }
-
-    //region Peticion historial de pedidos con retrofit
 
     public void history(int sucursal_id) {
         final String url = getString(R.string.url_api);
@@ -197,9 +218,9 @@ public class History extends AppCompatActivity
                 lbl_data_not_found.setText("Error de conexión");
                 setupImage();
                 try {
-                    Log.d("Principal(History)", "Errors body: " + error.getMessage());
+                    Log.d("History(history)", "Errors body: " + error.getMessage());
                 } catch (Exception ex) {
-                    Log.e("Principal(History)", "Error ret: " + error + "; Error ex: " + ex.getMessage());
+                    Log.e("History(history)", "Error ret: " + error + "; Error ex: " + ex.getMessage());
                 }
             }
         });

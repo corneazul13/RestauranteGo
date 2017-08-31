@@ -17,6 +17,14 @@ import retrofit.http.Query;
 public interface Api {
 
     @GET("/servicios_restaurante.php")
+    void newOrder(
+            @Query("svice") String svice,
+            @Query("metodo") String metodo,
+            @Query("sucId") int sucursal_id,
+            Callback<JsonArray> cb
+    );
+
+    @GET("/servicios_restaurante.php")
     void historial(
             @Query("svice") String svice,
             @Query("metodo") String metodo,

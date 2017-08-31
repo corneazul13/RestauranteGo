@@ -2,6 +2,7 @@
 
     <!-- Url api -->
     <string name="url_api">https://godomicilios.co/webService/servicios_restaurante.php</string>
+    <string name="url_img">http://godomicilios.co/admin/img/productos/</string>
 
     <string name="app_name">RestauranteGo</string>
     <string name="action_settings">Settings</string>
@@ -55,5 +56,17 @@
     <string name="lbl_confirm_order">Aceptar Pedido</string>
     <string name="lbl_cancel_order">Cancelar Pedido</string>
     <string name="lbl_detail_order">Detalle pedido:</string>
+    <string name="title_activity_chat_room">ChatRoom</string>
+
+    <!-- Vista del chat -->
+    <string name="lbl_message_chat">Escribe un mensaje</string>
+
+    <!-- Vista del detalle de la orden -->
+    <string name="lbl_name_product">Nombre Completo del Producto</string>
+    <string name="lbl_number_orders">No</string>
+    <string name="lbl_number">2</string>
+    <string name="lbl_drink_order">Bebidas</string>
+    <string name="lbl_ingredients">Ingredientes</string>
+    <string name="lbl_observations_order">Observaciones</string>
 
 </resources>
