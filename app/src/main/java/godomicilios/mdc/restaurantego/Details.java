@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +27,8 @@ import butterknife.ButterKnife;
 import godomicilios.mdc.restaurantego.Service.Api;
 import godomicilios.mdc.restaurantego.Utils.Certificate;
 import godomicilios.mdc.restaurantego.Utils.MaterialDialog;
+import godomicilios.mdc.restaurantego.settings.Additions;
+import godomicilios.mdc.restaurantego.settings.Drink;
 import godomicilios.mdc.restaurantego.settings.Product;
 import godomicilios.mdc.restaurantego.settings.detail;
 import godomicilios.mdc.restaurantego.settings.ingredient;
@@ -125,6 +128,7 @@ public class Details extends AppCompatActivity {
         lbl_observations.setTypeface(settings.fonts.typefaceR(context));
         lbl_details.setTypeface(settings.fonts.typefaceR(context));
         txt_observations.setTypeface(settings.fonts.typefaceR(context));
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     public void orderDetail(int order_id, final int position) {
@@ -222,28 +226,78 @@ public class Details extends AppCompatActivity {
         for (int i = 0; i < array.size(); i++) {
             JsonObject json_product = array.get(i).getAsJsonObject();
             Product product = new Gson().fromJson(json_product, Product.class);
-            setupLayoutDetail(product);
+
+            Drink drink = null;
+            if(json_product.get("bebida").getAsInt() == 1) {
+                JsonObject json_drink = json_product.getAsJsonObject("detalle_bebida");
+                drink = new Gson().fromJson(json_drink, Drink.class);
+            }
+
+            JsonArray array_additions = json_product.getAsJsonArray("detalle_adi");
+            setupLayoutDetail(product, drink, array_additions);
         }
     }
 
-    public void setupLayoutDetail(Product product) {
+    public void setupLayoutDetail(Product product, Drink drik, JsonArray array_additions) {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.template_row_detail, null);
         ImageView img_avatar = layout.findViewById(R.id.img_avatar_product);
         TextView lbl_name_product = layout.findViewById(R.id.lbl_name_product);
         TextView lbl_number = layout.findViewById(R.id.lbl_number);
         TextView txt_drink_order = layout.findViewById(R.id.txt_drink_order);
+        LinearLayout layout_additions = layout.findViewById(R.id.layout_additions);
+        TextView lbl_not_data = layout.findViewById(R.id.lbl_not_data);
         TextView txt_observations = layout.findViewById(R.id.txt_observations);
         TextView txt_subtotal = layout.findViewById(R.id.txt_subtotal);
 
-        Picasso.with(context).load(product.getAvatar()).placeholder(R.drawable.logo_blue).centerInside().fit().into(img_avatar);
+        Picasso.with(context).load(getString(R.string.url_img) + product.getAvatar())
+                .placeholder(R.drawable.logo_blue).centerInside().fit().into(img_avatar);
         lbl_name_product.setText(product.getName());
         lbl_number.setText(String.valueOf(product.getId()));
-        txt_drink_order.setText(product.getName());
+
+        if(drik != null) {
+            txt_drink_order.setText(drik.getDrink_name()+" "+drik.getSize());
+        } else {
+            txt_drink_order.setText("No tiene bebida");
+        }
+
         txt_observations.setText(product.getDescription());
-        txt_subtotal.setText("$" + String.valueOf(product.getValue()));
+        txt_subtotal.setText("$" + String.valueOf(format.format(product.getValue())));
+
+        if(array_additions.size() > 0) {
+            lbl_not_data.setVisibility(View.GONE);
+            setDetailsAdditions(array_additions, layout_additions);
+        } else {
+            lbl_not_data.setText("No tiene adiciones");
+            layout_additions.setVisibility(View.GONE);
+        }
 
         layout_details.addView(layout);
+    }
+
+    public void setDetailsAdditions(JsonArray array, LinearLayout layout) {
+        for (int i = 0; i < array.size(); i++) {
+            JsonObject json_addition = array.get(i).getAsJsonObject();
+            Additions additions = new Gson().fromJson(json_addition, Additions.class);
+            System.out.println("additions: " + additions.toString());
+            setupLayoutDetailAdditions(additions, layout);
+        }
+    }
+
+    public void setupLayoutDetailAdditions(Additions additions, LinearLayout layout_additions) {
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.template_additions, null);
+        TextView txt_name = layout.findViewById(R.id.txt_name);
+        TextView txt_quantity = layout.findViewById(R.id.txt_quantity);
+        TextView txt_unity_value = layout.findViewById(R.id.txt_unity_value);
+        TextView txt_total_value = layout.findViewById(R.id.txt_total_value);
+
+        txt_name.setText(additions.getName());
+        txt_quantity.setText(String.valueOf(additions.getQuantity()));
+        txt_unity_value.setText("$" + format.format(additions.getValue()));
+        txt_total_value.setText("$" + format.format(additions.getValue()));
+
+        layout_additions.addView(layout);
     }
 
 }

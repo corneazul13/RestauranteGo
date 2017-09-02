@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class addition {
+
     private String name;
     private Integer cant;
     private Integer unitPrice;
@@ -19,8 +20,8 @@ public class addition {
         this.unitPrice = unitPrice;
         this.totalPrice = totalPrice;
     }
-    public addition(){}
 
+    public addition(){}
 
     public String getName() {
         return name;
