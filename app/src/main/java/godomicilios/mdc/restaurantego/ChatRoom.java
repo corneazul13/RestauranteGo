@@ -28,9 +28,9 @@ public class ChatRoom extends AppCompatActivity {
     public void setupActivity() {
         context = this;
         setupToolbar();
-    }
+    }}
 
-    public void setupToolbar() {
+    /*public void setupToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
