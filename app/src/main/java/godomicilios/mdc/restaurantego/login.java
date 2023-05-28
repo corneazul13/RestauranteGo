@@ -48,6 +48,34 @@ public class Welcome extends AppCompatActivity {
         }, 1000);
     }
 
-    
+    public void setupPreferences() {
+        SharedPreferences preferences = getSharedPreferences("session_preferences", Context.MODE_PRIVATE);
+        boolean session = preferences.getBoolean("session", false);
+        if(session) {
+            Intent principal = new Intent (Welcome.this, Principal.class);
+            startActivity(principal);
+        } else {
+            preferences.getInt("admin_id", 0);
+            preferences.getInt("sucursal_id", 0);
+            preferences.getString("identification", "");
+            preferences.getString("email", "");
+            preferences.getString("username", "");
+            preferences.getString("fullname", "");
+            preferences.getString("telephone", "");
+            preferences.getString("avatar", "");
+            preferences.getInt("profile_id", 0);
+            preferences.getString("created_at", "");
+            preferences.getString("token_firebase", tokenFirebase());
+            Intent login = new Intent (Welcome.this, Login.class);
+            startActivity(login);
+        }
+        finish();
+    }
+
+    public String tokenFirebase() {
+        String token_refresh = FirebaseInstanceId.getInstance().getToken();
+        System.out.println("token: " + token_refresh);
+        return token_refresh;
+    }
 
 }
